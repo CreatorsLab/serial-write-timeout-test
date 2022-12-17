@@ -32,7 +32,7 @@ func main() {
 }
 
 func read(port Serial, timeout time.Duration) {
-	fmt.Printf("Read to %s with timeout of %v\n", port, timeout)
+	fmt.Printf("Read with timeout of %v\n", timeout)
 	t := time.Now()
 
 	b := make([]byte, 128)
@@ -45,7 +45,7 @@ func read(port Serial, timeout time.Duration) {
 }
 
 func write(port Serial, timeout time.Duration) {
-	fmt.Printf("Write to %s with timeout of %v\n", port, timeout)
+	fmt.Printf("Write with timeout of %v\n", timeout)
 	t := time.Now()
 
 	b := []byte{1, 2, 3, 4, 5, 6}
@@ -58,7 +58,7 @@ func write(port Serial, timeout time.Duration) {
 }
 
 func testBlockingSerial(device string, timeout time.Duration) {
-	fmt.Printf("Blocking write to %s\n", device)
+	fmt.Printf("Blocking serial conn to %s\n", device)
 
 	cfg := serial.Config{
 		Name:        device,
@@ -79,7 +79,7 @@ func testBlockingSerial(device string, timeout time.Duration) {
 }
 
 func testNonBlockingSerial(device string, timeout time.Duration) {
-	fmt.Printf("Non-blocking write to %s with timeout of %v\n", device, timeout)
+	fmt.Printf("Non-blocking serial conn to %s\n", device)
 
 	cfg := serialWithWriteTimeout.Config{
 		Name:         device,
