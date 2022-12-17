@@ -28,6 +28,7 @@ func main() {
 	}
 
 	testNonBlockingSerial(*device, *timeout)
+	fmt.Print("\n\n")
 	testBlockingSerial(*device, *timeout)
 }
 
@@ -75,6 +76,7 @@ func testBlockingSerial(device string, timeout time.Duration) {
 	defer port.Close()
 
 	read(port, timeout)
+	fmt.Print("\n")
 	write(port, timeout)
 }
 
@@ -97,5 +99,6 @@ func testNonBlockingSerial(device string, timeout time.Duration) {
 	defer port.Close()
 
 	read(port, timeout)
+	fmt.Print("\n")
 	write(port, timeout)
 }
